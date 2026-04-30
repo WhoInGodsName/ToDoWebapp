@@ -11,12 +11,16 @@ const app = express();
 //Middleware setup
 app.use(express.json());
 
-const corsOptions = {
-  origin: 'https://to-do-webapp-ten.vercel.app', // Vercel's frontend URL
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || origin.endsWith(".vercel.app")) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
-};
-app.use(cors(corsOptions));
+}));
 
 //--------------------------------MONGO SETUP--------------------------------------
 
