@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: 'https://to-do-webapp-ten.vercel.app/dashboard.html', // Vercel's frontend URL
+  origin: 'https://to-do-webapp-ten.vercel.app/', // Vercel's frontend URL
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   credentials: true
 };
