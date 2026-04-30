@@ -10,7 +10,13 @@ const app = express();
 
 //Middleware setup
 app.use(express.json());
-app.use(cors("*")); //Change
+
+const corsOptions = {
+  origin: 'https://todobackend-dkj7.onrender.com', // Vercel's frontend URL
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  credentials: true
+};
+app.use(cors(corsOptions));
 
 //--------------------------------MONGO SETUP--------------------------------------
 
