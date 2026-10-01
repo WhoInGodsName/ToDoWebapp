@@ -202,9 +202,6 @@ async function createNewTask() {
 }
 
 
-
-
-
 // marks task as completed ↓
 async function completeTask(taskId) {
   try {
