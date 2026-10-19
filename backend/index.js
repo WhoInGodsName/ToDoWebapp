@@ -13,14 +13,13 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || origin.endsWith(".vercel.app")) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true
+  origin: "https://todowebapp-frontend-96kn.vercel.app",
+  credentials: true,
+}));
+
+app.options("*", cors({
+  origin: "https://todowebapp-frontend-96kn.vercel.app",
+  credentials: true,
 }));
 
 //--------------------------------MONGO SETUP--------------------------------------
